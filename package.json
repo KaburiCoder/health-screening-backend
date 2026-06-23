@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon ./src/index.ts",
-    "start:debug": "nodemon --inspect src/index.ts",
+    "start:dev": "npm run swagger:dev && nodemon ./src/index.ts",
+    "start:debug": "npm run swagger:dev && nodemon --inspect src/index.ts",
     "swagger:dev": "swagger-cli bundle ./src/swagger/openapi.yaml --outfile src/swagger/swagger.yaml --type yaml",
     "swagger:build": "swagger-cli bundle ./src/swagger/openapi.yaml --outfile dist/swagger/swagger.yaml --type yaml",
     "deploy:prod": "npm run build && pm2 startOrRestart ecosystem.prod.config.js --env prod",
